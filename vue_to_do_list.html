@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h3>To-do List</h3>
+      <input
+        v-model="userData.name"
+        type="text"
+        placeholder="Enter name to do"
+      />
+      <small v-if="validateStatus.nameStatus">Name required</small>
+      <br />
+      <input
+        v-model="userData.note"
+        type="text"
+        placeholder="Enter note to do"
+      />
+      <small v-if="validateStatus.noteStatus">Note required</small>
+      <br />
+      <button @click="create()">Add</button>
+
+      <hr />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="i in items" :key="i.id">
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.note }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Name:</strong> {{ userData.name }}</p>
+      <p><strong>Note:</strong> {{ userData.note }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
