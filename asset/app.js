@@ -35,5 +35,8 @@ let app = new Vue({
       this.userData.name = "";
       this.userData.note = "";
     },
+    remove(index) {
+  this.items.splice(index, 1);
+}
   },
 });
